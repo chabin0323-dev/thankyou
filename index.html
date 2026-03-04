@@ -1,62 +1,284 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>ご購入ありがとうございます</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow" />
 <style>
-body {
-font-family: sans-serif;
-background: linear-gradient(135deg,#1e1e2f,#2d1b4e);
-color: white;
-text-align: center;
-padding: 40px;
+:root{
+--bg1:#0b0616;
+--bg2:#1a0b2e;
+--card:rgba(255,255,255,.07);
+--card2:rgba(255,255,255,.10);
+--text:rgba(255,255,255,.92);
+--muted:rgba(255,255,255,.72);
+--muted2:rgba(255,255,255,.58);
+--accent:#ff4fb9;
+--accent2:#ff7ad1;
+--line:rgba(255,255,255,.12);
+--shadow:0 18px 50px rgba(0,0,0,.35);
+--radius:18px;
 }
-h1 {
-font-size: 28px;
-margin-bottom: 30px;
+*{box-sizing:border-box}
+body{
+margin:0;
+font-family: ui-sans-serif, system-ui, -apple-system, "Hiragino Kaku Gothic ProN","Meiryo", "Noto Sans JP", sans-serif;
+color:var(--text);
+min-height:100vh;
+background:
+radial-gradient(1200px 700px at 20% 10%, rgba(255,79,185,.22), transparent 55%),
+radial-gradient(1000px 600px at 85% 25%, rgba(123,97,255,.22), transparent 55%),
+radial-gradient(900px 600px at 45% 90%, rgba(255,202,120,.12), transparent 55%),
+linear-gradient(180deg, var(--bg1), var(--bg2));
+display:flex;
+align-items:center;
+justify-content:center;
+padding:26px 14px;
 }
-.box {
-background: rgba(255,255,255,0.1);
-padding: 25px;
-margin: 20px 0;
-border-radius: 15px;
+.wrap{width:min(860px,100%)}
+.hero{
+text-align:center;
+margin-bottom:18px;
 }
-a {
-display: inline-block;
-margin-top: 15px;
-padding: 12px 25px;
-background: #ff4da6;
-color: white;
-text-decoration: none;
-border-radius: 30px;
-font-weight: bold;
+.title{
+font-size: clamp(22px, 4.2vw, 34px);
+letter-spacing:.02em;
+margin: 0 0 10px;
+font-weight: 800;
 }
-a:hover {
-background: #ff1a8c;
+.subtitle{
+margin:0;
+color:var(--muted);
+font-size: 14px;
+line-height:1.8;
 }
+.panel{
+margin-top:18px;
+background: rgba(0,0,0,.22);
+border:1px solid var(--line);
+border-radius: var(--radius);
+box-shadow: var(--shadow);
+overflow:hidden;
+}
+.panelInner{
+padding: 18px;
+}
+.cards{
+display:grid;
+grid-template-columns: 1fr;
+gap:14px;
+margin-top:14px;
+}
+@media (min-width:720px){
+.cards{grid-template-columns: 1fr 1fr}
+}
+.card{
+background: linear-gradient(180deg, var(--card), rgba(255,255,255,.05));
+border:1px solid var(--line);
+border-radius: 16px;
+padding:16px 16px 14px;
+position:relative;
+overflow:hidden;
+}
+.card::before{
+content:"";
+position:absolute;
+inset:-60px -60px auto auto;
+width:160px;height:160px;
+background: radial-gradient(circle at 30% 30%, rgba(255,79,185,.32), transparent 60%);
+transform: rotate(12deg);
+pointer-events:none;
+}
+.card h3{
+margin:0 0 8px;
+font-size: 16px;
+letter-spacing:.02em;
+}
+.card p{
+margin:0 0 12px;
+color:var(--muted);
+font-size:13px;
+line-height:1.7;
+}
+.btn{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+width:100%;
+border:0;
+background: linear-gradient(90deg, var(--accent), var(--accent2));
+color:#12061b;
+font-weight:800;
+padding: 12px 14px;
+border-radius: 999px;
+cursor:pointer;
+text-decoration:none;
+box-shadow: 0 10px 30px rgba(255,79,185,.25);
+transition: transform .08s ease, filter .2s ease;
+user-select:none;
+}
+.btn:hover{filter: brightness(1.05)}
+.btn:active{transform: translateY(1px)}
+.btn.secondary{
+background: rgba(255,255,255,.12);
+color: var(--text);
+border:1px solid var(--line);
+box-shadow:none;
+}
+
+.section{
+margin-top:14px;
+background: rgba(255,255,255,.06);
+border:1px solid var(--line);
+border-radius: 16px;
+padding: 14px 14px 12px;
+}
+.section h4{
+margin:0 0 10px;
+font-size: 14px;
+letter-spacing:.02em;
+}
+.note{
+color:var(--muted2);
+font-size:12.5px;
+line-height:1.85;
+margin:0;
+}
+details{
+border-top:1px solid var(--line);
+margin-top:12px;
+padding-top:12px;
+}
+summary{
+cursor:pointer;
+font-weight:700;
+color:var(--text);
+list-style:none;
+}
+summary::-webkit-details-marker{display:none}
+.steps{
+margin:10px 0 0;
+padding-left: 1.1em;
+color:var(--muted);
+font-size:13px;
+line-height:1.85;
+}
+.pill{
+display:inline-block;
+font-size:12px;
+padding: 4px 10px;
+border-radius:999px;
+background: rgba(255,255,255,.10);
+border:1px solid var(--line);
+color: var(--muted);
+margin-left:8px;
+vertical-align: middle;
+}
+
+.footer{
+text-align:center;
+margin-top:14px;
+color:var(--muted2);
+font-size:12px;
+line-height:1.85;
+}
+.smallLink{
+color: rgba(255,255,255,.8);
+text-decoration: underline;
+text-underline-offset: 3px;
+}
+.hr{height:1px;background:var(--line);margin:12px 0}
 </style>
 </head>
+
 <body>
+<div class="wrap">
 
-<h1>🎉 ご購入ありがとうございます</h1>
+<div class="hero">
+<h1 class="title">🎉 ご購入ありがとうございます！</h1>
+<p class="subtitle">
+下のボタンから、すぐにご利用いただけます。<br />
+<span class="pill">おすすめ</span> このページをブックマーク or ホーム画面に追加すると、次から一瞬で開けます。
+</p>
+</div>
 
-<div class="box">
-<h2>💞 相性占いアプリ</h2>
-<a href="https://compatibility-fortune-telling.vercel.app/" target="_blank">
+<div class="panel">
+<div class="panelInner">
+
+<div class="cards">
+<div class="card">
+<h3>💞 相性占いアプリ</h3>
+<p>2人の相性の全体像を、分かりやすく一気に確認できます。</p>
+<a class="btn" href="https://compatibility-fortune-telling.vercel.app/" target="_blank" rel="noopener noreferrer">
 アプリを開く
 </a>
 </div>
 
-<div class="box">
-<h2>🎁 特典：個人占いアプリ</h2>
-<a href="https://ai-fortune-teller-umber.vercel.app" target="_blank">
+<div class="card">
+<h3>🎁 特典：個人占いアプリ</h3>
+<p>あなた専用の運勢・流れ・ヒントを、いつでも確認できます。</p>
+<a class="btn secondary" href="https://ai-fortune-teller-umber.vercel.app" target="_blank" rel="noopener noreferrer">
 特典アプリを開く
 </a>
 </div>
+</div>
 
-<p>※ブックマークしてご利用ください<br>
-※1日5回まで利用可能です</p>
+<div class="section">
+<h4>📱 次から“アイコン”で一発起動する方法</h4>
+<p class="note">
+毎回URLを探さなくてOK。ホーム画面に追加すると、アプリみたいにすぐ開けます。
+</p>
 
+<details open>
+<summary>iPhone の方（Safari）</summary>
+<ol class="steps">
+<li>このページ or 開きたいアプリを <b>Safari</b> で開く</li>
+<li>画面下の <b>共有ボタン（□↑）</b> をタップ</li>
+<li><b>「ホーム画面に追加」</b> をタップ</li>
+<li>右上の <b>「追加」</b> を押して完了</li>
+</ol>
+</details>
+
+<details>
+<summary>Android の方（Chrome）</summary>
+<ol class="steps">
+<li>このページ or 開きたいアプリを <b>Chrome</b> で開く</li>
+<li>右上の <b>︙（3点）</b> をタップ</li>
+<li><b>「ホーム画面に追加」</b> をタップ</li>
+<li><b>「追加」</b> を押して完了</li>
+</ol>
+</details>
+
+<details>
+<summary>LINEから開くときのコツ（うまく開けない時）</summary>
+<ol class="steps">
+<li>LINEの青いURLをタップして開く</li>
+<li>画面の <b>︙ / …</b> をタップ</li>
+<li><b>「ブラウザで開く（Safari/Chrome）」</b> を選ぶ</li>
+<li>その後に <b>ホーム画面に追加</b> を行うと確実です</li>
+</ol>
+</details>
+
+<div class="hr"></div>
+
+<h4>🔒 ご利用に関するお願い</h4>
+<p class="note">
+・このURLは購入者さま向けです（第三者への共有はお控えください）<br />
+・過度なアクセスやURLの拡散が確認された場合、予告なく制限することがあります<br />
+・回数制限：<b>1日5回</b>（目安）<br />
+</p>
+</div>
+
+<div class="footer">
+困ったときは、購入時の案内（note / メール / DM）に返信してください。<br />
+※このページはブックマーク推奨です。
+</div>
+
+</div>
+</div>
+
+</div>
 </body>
 </html>

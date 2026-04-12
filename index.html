@@ -5,35 +5,54 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ご購入ありがとうございます</title>
 <style>
-body{margin:0;font-family:Arial,sans-serif;background:linear-gradient(135deg,#140027,#3b0b63);color:white;text-align:center;padding:40px 20px;}
-.container{max-width:600px;margin:auto;}
-h1{font-size:28px;margin-bottom:20px;}
-.card{background:rgba(255,255,255,0.08);padding:25px;margin:20px 0;border-radius:15px;}
-button{background:#ff4fb9;border:none;color:white;padding:12px 24px;border-radius:30px;font-size:16px;cursor:pointer;margin-top:10px;}
-button:hover{opacity:0.9;}
-.info{margin-top:20px;margin-bottom:30px;font-size:15px;line-height:1.9;color:#fff;text-align:left;background:rgba(255,255,255,0.12);padding:20px;border-radius:10px;}
+@keyframes pulse{0%,100%{box-shadow:0 0 15px rgba(255,100,255,0.4)}50%{box-shadow:0 0 30px rgba(255,100,255,0.8)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes shimmer{0%{background-position:200% center}100%{background-position:-200% center}}
+@keyframes twinkle{0%,100%{opacity:0.2}50%{opacity:1}}
+body{margin:0;font-family:Arial,sans-serif;background:linear-gradient(160deg,#0d001f,#2a0050,#0d001f);color:white;text-align:center;padding:40px 20px;min-height:100vh;}
+.container{max-width:480px;margin:auto;}
+.title{font-size:26px;font-weight:bold;margin-bottom:28px;background:linear-gradient(90deg,#ffd700,#ffaaff,#ffd700);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:shimmer 3s linear infinite;}
+.stars{font-size:18px;letter-spacing:6px;margin-bottom:8px;animation:twinkle 2s ease-in-out infinite;}
+.card{background:linear-gradient(135deg,rgba(120,0,180,0.3),rgba(60,0,120,0.5));padding:28px 24px;margin:20px 0;border-radius:18px;border:1px solid rgba(200,100,255,0.4);animation:pulse 3s ease-in-out infinite;}
+.card h2{font-size:20px;margin-bottom:8px;background:linear-gradient(90deg,#ffccff,#ffffff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.card p{color:rgba(255,255,255,0.8);font-size:14px;margin-bottom:16px;}
+.btn{display:inline-block;background:linear-gradient(90deg,#ff4fb9,#cc00ff);border:none;color:white;padding:14px 36px;border-radius:30px;font-size:16px;font-weight:bold;cursor:pointer;animation:float 2.5s ease-in-out infinite;text-decoration:none;transition:opacity 0.2s;}
+.btn:hover{opacity:0.85;}
+.info{margin:20px 0;font-size:13px;line-height:2;color:rgba(255,255,255,0.75);text-align:left;background:rgba(255,255,255,0.06);padding:20px 24px;border-radius:14px;border:1px solid rgba(255,255,255,0.1);}
+.info b{color:#ffccff;}
+.footer{margin-top:24px;padding:20px 24px;font-size:12px;line-height:2;color:rgba(255,255,255,0.5);text-align:left;border-top:1px solid rgba(255,255,255,0.1);}
 </style>
 </head>
 <body>
 <div class="container">
-<h1>🎉 ご購入ありがとうございます</h1>
-<div class="info">
-📱<b>アプリをホーム画面に追加すると便利です</b><br><br>
-毎回URLを開く必要はありません。<br>
-ホーム画面にアイコンを作ると<br>
-アプリのようにすぐ開けます。<br><br>
-<b>【iPhone】</b><br>
-①下の「□↑」共有ボタン<br>
-②「ホーム画面に追加」<br>
-③「追加」<br><br>
-<b>【Android】</b><br>
-①右上「︙」<br>
-②「ホーム画面に追加」<br>
-③「追加」
+  <div class="stars">✦ ✦ ✦ ✦ ✦</div>
+  <div class="title">🎉 ご購入ありがとうございます</div>
+  <div class="stars">✦ ✦ ✦ ✦ ✦</div>
+
+  <div class="card">
+    <h2>💞 相性占いアプリ</h2>
+    <p>二人の相性の全体像を確認できます</p>
+    <button class="btn" onclick="window.open('https://aisou-fortune-host.vercel.app/')">✨ アプリを開く</button>
+  </div>
+
+  <div class="info">
+    📱 <b>ホーム画面に追加すると便利です</b><br><br>
+    毎回URLを開く必要はありません。<br>
+    ホーム画面にアイコンを作ると<br>アプリのようにすぐ開けます。<br><br>
+    <b>【iPhone】</b><br>
+    ①下の「□↑」共有ボタン<br>
+    ②「ホーム画面に追加」→③「追加」<br><br>
+    <b>【Android】</b><br>
+    ①右上「︙」<br>
+    ②「ホーム画面に追加」→③「追加」
+  </div>
+
+  <div class="footer">
+    🔒 <b style="color:rgba(255,255,255,0.7)">ご利用について</b><br>
+    ・このURLは購入者専用です<br>
+    ・第三者への共有はお控えください<br>
+    ・過度なアクセスが確認された場合、予告なく制限することがあります
+  </div>
 </div>
-<div class="card">
-<h2>💞 相性占いアプリ</h2>
-<p>二人の相性の全体像を確認できます</p>
-<button onclick="window.open('https://aisou-fortune-host.vercel.app/')">アプリを開く</button>
-</div>
-<div class="info" style="border-top:1px so
+</body>
+</html>
